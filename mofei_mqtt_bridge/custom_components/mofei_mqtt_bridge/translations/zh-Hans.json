@@ -1,0 +1,27 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "配置 Mofei MQTT Bridge",
+        "description": "填写用于拼接 MQTT 主题的 MAC。",
+        "data": {
+          "mac": "MAC",
+          "name": "名称",
+          "qos": "QoS",
+          "retain": "保留消息"
+        }
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Mofei MQTT Bridge 选项",
+        "data": {
+          "qos": "QoS",
+          "retain": "保留消息"
+        }
+      }
+    }
+  }
+}
