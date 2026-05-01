@@ -1,5 +1,6 @@
 {
   "name": "Mofei MQTT Bridge",
   "render_readme": true,
-  "homeassistant": "2024.1.0"
+  "homeassistant": "2024.1.0",
+  "domains": ["mofei_mqtt_bridge"]
 }

@@ -1,37 +1,55 @@
 # Mofei MQTT Bridge
 
-Home Assistant 自定义集成，用于把墨菲中控相关命令映射为可调用实体，并通过 MQTT 下发控制消息。
+![Mofei MQTT Bridge](brands/mofei_mqtt_bridge/icon.png)
 
-## 功能
+Mofei MQTT Bridge is a Home Assistant custom integration for mapping Mofei central-control commands to Home Assistant entities and MQTT messages.
 
-- 通过配置的 MAC 自动拼接 `/ACS/<mac>/up` 与 `/ACS/<mac>/down` 主题
-- 提供按钮实体，映射场景、影音、空调、灯光、KTV 等控制命令
-- 支持场景名称持久化和前端卡片同步
-- 提供 `mofei_mqtt_bridge.send_message` 服务
+## Features
 
-## 安装
+- Builds MQTT topics from the configured MAC address, including `/ACS/<mac>/up` and `/ACS/<mac>/down`.
+- Provides button entities for scene, media, facility, lighting, and KTV control commands.
+- Stores scene names so they can stay synchronized with the Lovelace card.
+- Provides the `mofei_mqtt_bridge.send_message` service for direct command publishing.
 
-### 手动安装
-
-将 `custom_components/mofei_mqtt_bridge` 复制到 Home Assistant 的 `custom_components` 目录下。
+## Installation
 
 ### HACS
 
-1. 将本仓库作为 HACS 自定义仓库添加
-2. 类型选择 `Integration`
-3. 安装 `Mofei MQTT Bridge`
-4. 重启 Home Assistant
+1. Open HACS.
+2. Add this repository as a custom repository.
+3. Select `Integration` as the category.
+4. Install `Mofei MQTT Bridge`.
+5. Restart Home Assistant.
+6. Add the integration from **Settings > Devices & services**.
 
-## 配置
+### Manual
 
-安装后在 Home Assistant 中添加集成：
+Copy `custom_components/mofei_mqtt_bridge` into the `custom_components` directory in your Home Assistant configuration folder, then restart Home Assistant.
 
-- MAC
-- 名称
-- QoS
-- 是否 retain
+## Configuration
 
-## 搭配 UI
+After installation, add the integration in Home Assistant and configure:
 
-推荐与 `mofei_remote_hacs_ui` 卡片一起使用。
+- MAC address
+- Display name
+- MQTT QoS
+- MQTT retain setting
 
+## Services
+
+### `mofei_mqtt_bridge.send_message`
+
+Publishes a control message to the configured MQTT topic.
+
+Example:
+
+```yaml
+service: mofei_mqtt_bridge.send_message
+data:
+  mac: "001122334455"
+  payload: "FE04D000"
+```
+
+## Recommended Card
+
+This integration is designed to work with [Mofei Remote Card](https://github.com/zyjsmile857/mofei-remote-card).
