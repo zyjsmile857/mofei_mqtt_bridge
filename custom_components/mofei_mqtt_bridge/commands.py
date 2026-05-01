@@ -1,4 +1,4 @@
-﻿"""Static downlink command definitions for Mofei MQTT Bridge."""
+"""Static downlink command definitions for Mofei MQTT Bridge."""
 
 from __future__ import annotations
 
