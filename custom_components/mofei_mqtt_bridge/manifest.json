@@ -1,0 +1,11 @@
+{
+  "domain": "mofei_mqtt_bridge",
+  "name": "Mofei MQTT Bridge",
+  "codeowners": ["@zyjsmile857"],
+  "config_flow": true,
+  "dependencies": ["mqtt"],
+  "integration_type": "device",
+  "iot_class": "local_push",
+  "requirements": [],
+  "version": "0.1.0"
+}
